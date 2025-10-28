@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:39:27 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/27 19:23:16 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/28 13:16:15 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 void	index_lst(t_list *lst, int ac, char **av)
 {
-	int	i;
-	int word;
+	int	check;
+	int check_i;
+	int index;
 
-	i = 0;
-	word = 0;
-	while(i < ac)
+	check_i = 1;
+	while(lst)
 	{
-		while(i < ac)
+		index = 1;
+		check = 1;
+		while(check < ac)
 		{
-			if (lst->val < lst->next->val)
-				i++;
-			ac--;
+			if (ft_atoi(av[check_i]) > ft_atoi(av[check]))
+				index++;
+			check++;
 		}
-		lst->index = i;
+		lst->index = index;
 		printf ("%d = %d\n",lst->val, lst->index);
 		lst = lst->next;
+		check_i++;
 	}
 
 }

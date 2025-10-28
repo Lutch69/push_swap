@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 15:13:59 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/28 11:35:04 by ludebarn         ###   ########.fr       */
+/*   Created: 2025/09/26 12:04:35 by lucasdebarn       #+#    #+#             */
+/*   Updated: 2025/10/28 12:49:22 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	ft_atoi(char *str)
 {
-	t_list *lst;
-	if (ac == 2)
+	int	i;
+	int	signe;
+	int	result;
+
+	i = 0;
+	signe = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == 43 || str[i] == 45)
 	{
-		ft_strjoin(av[0], av[1]);
-		av = ft_split(av[0], ' ');
+		if (str[i] == 45)
+			signe *= -1;
+		i++;
 	}
-	lst = crea_lst(ac, av);
-	(void)lst;
-	return (0);
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		result = result * 10 + (str[i] - 48);
+		i++;
+	}
+	return (signe * result);
 }

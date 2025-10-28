@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 12:04:35 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/10/27 16:39:04 by ludebarn         ###   ########.fr       */
+/*   Created: 2025/09/27 10:25:01 by lucasdebarn       #+#    #+#             */
+/*   Updated: 2025/10/28 12:50:34 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 {
-	int	i;
-	int	signe;
-	int	result;
+	size_t	i;
+	size_t	srclen;
 
+	srclen = ft_strlen(src);
 	i = 0;
-	signe = 1;
-	result = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == 43 || str[i] == 45)
+	if (dstsize == 0)
+		return (srclen);
+	while (i < dstsize - 1 && src[i])
 	{
-		if (str[i] == 45)
-			signe *= -1;
+		dst[i] = src[i];
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		result = result * 10 + (str[i] - 48);
-		i++;
-	}
-	return (signe * result);
+	dst[i] = '\0';
+	return (srclen);
 }

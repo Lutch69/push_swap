@@ -6,25 +6,25 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 15:55:32 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/27 16:15:18 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/28 12:56:48 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+// #include "push_swap.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
-{
-	t_list	*temp;
+// void	ft_lstclear(t_list **lst, void (*del)(void *))
+// {
+// 	t_list	*temp;
 
-	if (!lst)
-		return ;
-	while (*lst)
-	{
-		temp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = temp;
-	}
-}
+// 	if (!lst)
+// 		return ;
+// 	while (*lst)
+// 	{
+// 		temp = (*lst)->next;
+// 		ft_lstdelone(*lst, del);
+// 		*lst = temp;
+// 	}
+// }
 
 // void	ft_free(void *content)
 // {

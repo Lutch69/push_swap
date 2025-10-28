@@ -6,13 +6,13 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 12:03:08 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/10/27 19:05:21 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/28 12:49:08 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	size_t	n;
 	size_t	lens;

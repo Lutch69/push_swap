@@ -6,13 +6,13 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 16:32:14 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/27 18:55:16 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/28 12:52:58 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	ft_countword(char const *str, char c)
+static size_t	ft_countword(char *str, char c)
 {
 	size_t	i;
 	size_t	word;
@@ -38,7 +38,7 @@ static void	ft_freetab(char **newstr, size_t word)
 	free(newstr);
 }
 
-static int	ft_copy_lines(char **newstr, const char *str, char c, size_t word)
+static int	ft_copy_lines(char **newstr, char *str, char c, size_t word)
 {
 	size_t	i;
 	size_t	count_word;
@@ -67,7 +67,7 @@ static int	ft_copy_lines(char **newstr, const char *str, char c, size_t word)
 	return (1);
 }
 
-char	**ft_split(const char *s1, char c)
+char	**ft_split(char *s1, char c)
 {
 	char	**newstr;
 	size_t	word;

@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 10:25:05 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/10/27 19:04:49 by ludebarn         ###   ########.fr       */
+/*   Created: 2025/09/27 10:48:50 by lucasdebarn       #+#    #+#             */
+/*   Updated: 2025/10/28 12:51:31 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strdup(char *s1)
 {
-	int	i;
+	size_t	len;
+	char	*s2;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	len = (ft_strlen(s1) + 1);
+	s2 = malloc(sizeof(char) * len);
+	if (!s2)
+		return (NULL);
+	ft_strlcpy(s2, s1, len);
+	return (s2);
 }
