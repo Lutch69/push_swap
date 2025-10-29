@@ -3,32 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:12:07 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/28 19:31:39 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/29 07:05:45 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils/push_swap.h"
 
-void	swap(t_list **lst)
+static void	ft_swap(t_list **lst)
 {
-	t_list *swap;
+	t_list *first;
+	t_list *second;
 
-	if (!*lst || !lst)
-		return (NULL);
+	if (!lst || !*lst || !(*lst)->next)
+		return ;
 
-	swap = (*lst);
-	(*lst) = (*lst)->next;
-	(*lst) = swap;
+	first = *lst;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*lst = second;
 }
 void	swap_a(t_list **lst_a)
 {
-
+	ft_swap(lst_a);
+	ft_putstr("sa");
 }
 
-void	push_a(t_list **lst_a)
+void	swap_b(t_list **lst_b)
 {
-
+	ft_swap(lst_b);
+	ft_putstr("sb");
+}
+void	swap_ss(t_list **lst_a, t_list **lst_b)
+{
+	ft_swap(lst_a);
+	ft_swap(lst_b);
+	ft_putstr("ss");
 }

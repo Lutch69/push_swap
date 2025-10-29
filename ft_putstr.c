@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 10:25:05 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/10/28 12:50:03 by ludebarn         ###   ########.fr       */
+/*   Created: 2025/10/29 06:43:13 by lucasdebarn       #+#    #+#             */
+/*   Updated: 2025/10/29 06:58:47 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils/push_swap.h"
 
-size_t	ft_strlen(char *s)
+void	ft_putstr(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	while (*str)
+	{
+		write (1, str, 1);
+		str++;
+	}
 }

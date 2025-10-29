@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   crea_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:39:27 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/28 13:16:15 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/29 07:07:01 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils/push_swap.h"
 
 void	index_lst(t_list *lst, int ac, char **av)
 {

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 10:25:01 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/10/28 12:50:34 by ludebarn         ###   ########.fr       */
+/*   Created: 2025/09/27 10:25:05 by lucasdebarn       #+#    #+#             */
+/*   Updated: 2025/10/29 07:06:50 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils/push_swap.h"
 
-size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
+size_t	ft_strlen(char *s)
 {
-	size_t	i;
-	size_t	srclen;
+	int	i;
 
-	srclen = ft_strlen(src);
 	i = 0;
-	if (dstsize == 0)
-		return (srclen);
-	while (i < dstsize - 1 && src[i])
-	{
-		dst[i] = src[i];
+	while (s[i])
 		i++;
-	}
-	dst[i] = '\0';
-	return (srclen);
+	return (i);
 }

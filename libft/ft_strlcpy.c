@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 10:24:57 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/10/27 19:21:00 by ludebarn         ###   ########.fr       */
+/*   Created: 2025/09/27 10:25:01 by lucasdebarn       #+#    #+#             */
+/*   Updated: 2025/10/29 07:06:42 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils/push_swap.h"
 
-size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	srclen;
-	size_t	dstlen;
 
-	i = 0;
 	srclen = ft_strlen(src);
-	dstlen = ft_strlen(dst);
-	if (dstsize <= dstlen)
-		return (dstsize + srclen);
-	while ((src[i]) && (i < dstsize - dstlen - 1))
+	i = 0;
+	if (dstsize == 0)
+		return (srclen);
+	while (i < dstsize - 1 && src[i])
 	{
-		dst[dstlen + i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	dst[dstlen + i] = '\0';
-	return (dstlen + srclen);
+	dst[i] = '\0';
+	return (srclen);
 }

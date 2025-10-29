@@ -3,45 +3,41 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+         #
+#    By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 11:29:45 by ludebarn          #+#    #+#              #
-#    Updated: 2025/10/28 13:00:56 by ludebarn         ###   ########.fr        #
+#    Updated: 2025/10/29 07:20:14 by lucasdebarn      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap.a
 
-LIBC =	crea_lst.c push_swap.c ft_substr.c ft_strlen.c ft_strlcpy.c \
-		ft_strlcat.c ft_strjoin.c ft_split.c ft_lstsize_bonus.c \
-		ft_lstnew_bonus.c ft_lstlast_bonus.c ft_lstclear_bonus.c \
-		ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c ft_atoi.c \
-		ft_strdup.c ft_lstdelone_bonus.c
+LIBFT = libft
+LST   = lst
+UTILS = utils
 
-SRCS = ${LIBC}
-
-
-OBJS = ${SRCS:.c=.o}
+SRCS = $(wildcard $(LIBFT)/*.c) $(wildcard $(LST)/*.c) $(wildcard $(UTILS)/*.c)
+OBJ_DIR = object
+OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 CC = gcc
-
 CFLAGS = -Wall -Werror -Wextra -g -I ./
 
-.c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+$(OBJ_DIR)/%.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-${NAME}:	${OBJS}
-		ar -rsc ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+	ar -rsc $@ $^
 
-
-all: 	${NAME}
+all: $(NAME)
 
 clean:
-		@rm -f ${OBJS}
+	@rm -rf $(OBJ_DIR)
 
-fclean:	clean;
-		@rm -f ${NAME}
+fclean: clean
+	@rm -f $(NAME)
 
-re:	fclean all
+re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

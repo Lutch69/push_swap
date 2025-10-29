@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/28 12:54:40 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/29 07:06:00 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP
 # define PUSH_SWAP
 
-// #include "../libft/libft.h"
-// #include "../printf/ft_printf.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -41,4 +39,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlcat(char *dst, char *src, size_t dstsize);
 char	*ft_strdup(char *s1);
+void	ft_putstr(char *str);
+void	swap_a(t_list **lst_a);
+void	swap_b(t_list **lst_b);
 #endif
