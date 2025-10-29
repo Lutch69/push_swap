@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 14:35:01 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/29 07:07:23 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/10/29 07:45:37 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 // {
 // 	if (!lst)
 // 		return ;
-// 	del (lst->content);
+// 	del (lst->next);
 // 	free (lst);
 // }
 
 // void	ft_free(void *content)
 // {
-// 	if(content)
+// 	if(next)
 // 		free(content);
 // }
 
