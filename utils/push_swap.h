@@ -6,12 +6,16 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/30 15:18:34 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/30 22:22:12 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP
 # define PUSH_SWAP
+
+#ifndef FLAG
+# define FLAG 0
+#endif
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,6 +49,7 @@ char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlcat(char *dst, char *src, size_t dstsize);
 char	*ft_strdup(char *s1);
 void	ft_putstr(char *str);
+char	*ft_strchr(const char *s, int c);
 
 //fonction de tri
 int		push_a(t_list **lst_a, t_list **lst_b, int flag);
@@ -62,11 +67,14 @@ int		reverse_rotate_r(t_list **lst_a, t_list **lst_b, int flag);
 //fonction pour algo
 int	push_to_b(t_list **lst_a, t_list **lst_b, int chunk_size, int lst_size);
 int	sort_to_a(t_list **lst_a, t_list **lst_b);
-int	checkchunk_size(int lst_size);
 void	algo(t_list **lst_a, t_list **lst_b);
-int	check_rrb(t_list **lst_b, int chunk_pos);
-int	check_rb(t_list **lst_b, int chunk_pos);
-int	check_ra(t_list **lst, int chunk_pos);
-int	check_rra(t_list **lst, int chunk_pos);
 
+// check pour algo
+// int	checkchunk_size(t_list *lst_a, t_list *lst_b, int lst_size);
+// void	check_rotate(t_list *lst);
+// int	check_rrb(t_list *lst_b, int chunk_pos);
+// int	check_rb(t_list *lst_b, int chunk_pos);
+// int	check_ra(t_list *lst, int chunk_pos);
+// int	check_rra(t_list *lst, int chunk_pos);
+// int	check_push_to_b(t_list *lst_a, t_list *lst_b, int chunk_size, int lst_size);
 #endif

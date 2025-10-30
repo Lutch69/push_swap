@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 16:32:14 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/29 07:06:20 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/10/30 18:34:48 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static size_t	ft_countword(char *str, char c)
 
 static void	ft_freetab(char **newstr, size_t word)
 {
+	ft_putstr("ERROR404");
 	while (word-- > 0)
 		free(newstr[word]);
 	free(newstr);

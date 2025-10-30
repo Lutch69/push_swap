@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+         #
+#    By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 11:29:45 by ludebarn          #+#    #+#              #
-#    Updated: 2025/10/29 07:20:14 by lucasdebarn      ###   ########.fr        #
+#    Updated: 2025/10/30 22:24:39 by ludebarn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJ_DIR = object
 OBJS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g -I ./
+CFLAGS = -I ./
 
 $(OBJ_DIR)/%.o: %.c
 	mkdir -p $(dir $@)
