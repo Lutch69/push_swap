@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:12:07 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/29 07:05:45 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/10/29 16:36:41 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,17 @@ static void	ft_swap(t_list **lst)
 void	swap_a(t_list **lst_a)
 {
 	ft_swap(lst_a);
-	ft_putstr("sa");
+	ft_putstr("sa\n");
 }
 
 void	swap_b(t_list **lst_b)
 {
 	ft_swap(lst_b);
-	ft_putstr("sb");
+	ft_putstr("sb\n");
 }
 void	swap_ss(t_list **lst_a, t_list **lst_b)
 {
 	ft_swap(lst_a);
 	ft_swap(lst_b);
-	ft_putstr("ss");
+	ft_putstr("ss\n");
 }

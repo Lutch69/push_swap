@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   crea_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:39:27 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/29 07:07:01 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/10/29 19:42:13 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	index_lst(t_list *lst, int ac, char **av)
 			check++;
 		}
 		lst->index = index;
-		printf ("%d = %d\n",lst->val, lst->index);
 		lst = lst->next;
 		check_i++;
 	}
