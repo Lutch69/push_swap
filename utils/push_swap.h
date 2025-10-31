@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/31 16:03:53 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/31 17:19:50 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	algo(t_list **lst_a, t_list **lst_b);
 // check pour algo
 int	checkchunk_size(t_list **lst_a, t_list **lst_b, int lst_size);
 int	check_rb(t_list *lst_b, int chunk_pos);
-// int	check_ra(t_list *lst, int chunk_pos);
-// int	check_rra(t_list *lst, int chunk_pos);
-int	check_push_to_b(t_list *lst_a, t_list *lst_b, int chunk_size, int lst_size);
+int	check_sort_to_a(t_list **temp_a, t_list **temp_b);
+int	check_push_to_b(t_list **lst_a, t_list **lst_b, int chunk_size, int lst_size);
 #endif

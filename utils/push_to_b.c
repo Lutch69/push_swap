@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:25:24 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/31 16:48:53 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/31 17:36:44 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	algo(t_list **lst_a, t_list **lst_b)
 		return ;
 	lst_size = ft_lstsize(*lst_a);
 	chunk_size = checkchunk_size(lst_a, lst_b, lst_size);
-	// i += push_to_b(lst_a, lst_b, chunk_size, lst_size);
-	// i += sort_to_a(lst_a, lst_b);
+	i += push_to_b(lst_a, lst_b, chunk_size, lst_size);
+	i += sort_to_a(lst_a, lst_b);
 		// printf ("[[[[%d]]]]", i);
 }
