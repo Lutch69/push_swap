@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/30 22:22:12 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/10/31 16:03:53 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	main(int ac, char **av);
 
 //Fonction lst
 void	ft_lstadd_back(t_list **lst, t_list *new);
-// void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst);
+t_list	*ft_lstdup(t_list *lst);
 // void	ft_lstdelone(t_list *lst, void (*del)(void *));
 t_list	*ft_lstnew(int val);
 t_list	*crea_lst(int ac, char **av);
@@ -70,11 +71,9 @@ int	sort_to_a(t_list **lst_a, t_list **lst_b);
 void	algo(t_list **lst_a, t_list **lst_b);
 
 // check pour algo
-// int	checkchunk_size(t_list *lst_a, t_list *lst_b, int lst_size);
-// void	check_rotate(t_list *lst);
-// int	check_rrb(t_list *lst_b, int chunk_pos);
-// int	check_rb(t_list *lst_b, int chunk_pos);
+int	checkchunk_size(t_list **lst_a, t_list **lst_b, int lst_size);
+int	check_rb(t_list *lst_b, int chunk_pos);
 // int	check_ra(t_list *lst, int chunk_pos);
 // int	check_rra(t_list *lst, int chunk_pos);
-// int	check_push_to_b(t_list *lst_a, t_list *lst_b, int chunk_size, int lst_size);
+int	check_push_to_b(t_list *lst_a, t_list *lst_b, int chunk_size, int lst_size);
 #endif
