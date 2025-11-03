@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:13:59 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/03 01:28:11 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/03 14:36:45 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int	main(int ac, char **av)
 	algo(&lst_a, &lst_b);
 	if (split)
 		free_av(av, ac);
+	ft_lstclear(&lst_a);
 	return (0);
 }

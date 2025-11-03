@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_to_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:58:11 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/03 01:14:32 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/03 14:00:17 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	checkchunk_size(t_list **lst_a, t_list **lst_b, int lst_size)
 	new_stock = 2147483647;
 	i = 1;
 	ret = lst_size;
-	while (i < lst_size / 2)
+	while (i < lst_size / 3)
 	{
 		temp_a = ft_lstdup(*lst_a);
 		temp_b = ft_lstdup(*lst_b);
