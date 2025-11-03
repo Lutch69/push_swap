@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/03 01:05:30 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/03 15:57:26 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,13 @@ int					reverse_rotate_b(t_list **lst_b, int flag);
 int					reverse_rotate_r(t_list **lst_a, t_list **lst_b, int flag);
 
 // fonction pour algo
-void				push_to_b(t_list **lst_a, t_list **lst_b, int chunk_size,
-						int lst_size);
-void					sort_to_a(t_list **lst_a, t_list **lst_b);
+int				push_to_b(t_list **lst_a, t_list **lst_b, int chunk_size,
+						int lst_size, int flag);
+int					sort_to_a(t_list **lst_a, t_list **lst_b, int flag);
 void				algo(t_list **lst_a, t_list **lst_b);
 
 // check pour algo
-int					checkchunk_size(t_list **lst_a, t_list **lst_b,
+int					definechunk_size(t_list **lst_a, t_list **lst_b,
 						int lst_size);
 int					check_rb(t_list *lst_b, int chunk_pos);
-int					check_sort_to_a(t_list **temp_a, t_list **temp_b);
-int					check_push_to_b(t_list **lst_a, t_list **lst_b,
-						int chunk_size, int lst_size);
 #endif
