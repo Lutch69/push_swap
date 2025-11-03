@@ -16,6 +16,7 @@ static void	ft_rotate(t_list **lst)
 {
 	t_list	*temp_end;
 	t_list	*temp_start;
+
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
 	temp_end = ft_lstlast(*lst);
@@ -34,7 +35,7 @@ int	rotate_a(t_list **lst_a, int flag)
 		return (0);
 	}
 	else
-		return(1);
+		return (1);
 }
 
 int	rotate_b(t_list **lst_b, int flag)

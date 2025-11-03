@@ -24,7 +24,7 @@ static void	ft_reverse_rotate(t_list **lst)
 	temp_findend = *lst;
 	temp_newstart = ft_lstlast(*lst);
 	temp_newstart->next = temp_findend;
-	while(i > 1)
+	while (i > 1)
 	{
 		temp_findend = temp_findend->next;
 		i--;
@@ -42,7 +42,7 @@ int	reverse_rotate_a(t_list **lst_a, int flag)
 		return (0);
 	}
 	else
-		return(1);
+		return (1);
 }
 
 int	reverse_rotate_b(t_list **lst_b, int flag)
@@ -54,7 +54,7 @@ int	reverse_rotate_b(t_list **lst_b, int flag)
 		return (0);
 	}
 	else
-		return(1);
+		return (1);
 }
 
 int	reverse_rotate_r(t_list **lst_a, t_list **lst_b, int flag)
@@ -64,7 +64,7 @@ int	reverse_rotate_r(t_list **lst_a, t_list **lst_b, int flag)
 	if (flag == 0)
 	{
 		ft_putstr("rrr\n");
-		return(0);
+		return (0);
 	}
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 16:32:14 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/30 18:34:48 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/02 23:28:53 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ static size_t	ft_countword(char *str, char c)
 	return (word);
 }
 
-static void	ft_freetab(char **newstr, size_t word)
+void	ft_freetab(char **newstr, size_t word)
 {
-	ft_putstr("ERROR404");
 	while (word-- > 0)
 		free(newstr[word]);
 	free(newstr);
+	ft_error();
 }
 
 static int	ft_copy_lines(char **newstr, char *str, char c, size_t word)

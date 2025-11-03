@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   crea_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:39:27 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/10/31 15:48:03 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/03 01:18:34 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	index_lst(t_list *lst, int ac, char **av)
 {
 	int	check;
-	int check_i;
-	int index;
+	int	check_i;
+	int	index;
 
 	check_i = 1;
-	while(lst)
+	while (lst)
 	{
 		index = 1;
 		check = 1;
-		while(check < ac)
+		while (check < ac)
 		{
 			if (ft_atoi(av[check_i]) > ft_atoi(av[check]))
 				index++;
@@ -33,13 +33,12 @@ void	index_lst(t_list *lst, int ac, char **av)
 		lst = lst->next;
 		check_i++;
 	}
-
 }
 
 t_list	*crea_lst(int ac, char **av)
 {
-	int	value;
-	int	i;
+	int		value;
+	int		i;
 	t_list	*lst;
 	t_list	*new_lst;
 
@@ -50,11 +49,10 @@ t_list	*crea_lst(int ac, char **av)
 		value = ft_atoi(av[i]);
 		lst = ft_lstnew(value);
 		if (!lst)
-			return(NULL);
+			return (NULL);
 		ft_lstadd_back(&new_lst, lst);
 		i++;
 	}
 	index_lst(new_lst, ac, av);
 	return (new_lst);
 }
-

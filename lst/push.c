@@ -15,6 +15,7 @@
 int	push_b(t_list **lst_a, t_list **lst_b, int flag)
 {
 	t_list	*temp;
+
 	if (!lst_a || !*lst_a)
 		return (0);
 	temp = *lst_b;
@@ -26,11 +27,12 @@ int	push_b(t_list **lst_a, t_list **lst_b, int flag)
 		ft_putstr("pb\n");
 		return (0);
 	}
-	return(1);
+	return (1);
 }
 int	push_a(t_list **lst_a, t_list **lst_b, int flag)
 {
 	t_list	*temp;
+
 	if (!lst_b || !*lst_b)
 		return (0);
 	temp = *lst_a;
@@ -42,6 +44,5 @@ int	push_a(t_list **lst_a, t_list **lst_b, int flag)
 		ft_putstr("pa\n");
 		return (0);
 	}
-	return(1);
+	return (1);
 }
-
