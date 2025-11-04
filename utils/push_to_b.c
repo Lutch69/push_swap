@@ -3,62 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:25:24 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/04 09:36:31 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/04 18:12:44 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_ra(t_list *lst, int chunk_size)
-{
-	int		i;
-	int		size;
-	t_list	*temp;
+// int	check_ra(t_list *lst, int chunk_size, int flag)
+// {
+// 	int		count_ra;
+// 	t_list	*temp;
 
-	if (!lst)
-		return (-1);
-	size = ft_lstsize(lst);
-	i = 0;
-	temp = lst;
-	while (i < size)
-	{
-		if (temp->index <= chunk_size)
-			return (i);
-		temp = temp->next;
-		i++;
-	}
-	return (-1);
-}
+// 	temp = ft_lstdup(lst);
+// 	count_ra = 0;
+// 	while ((temp)->index > chunk_size)
+// 	{
+// 		rotate_a(&temp, flag);
+// 		count_ra++;
+// 	}
+// 	ft_lstclear(&temp);
+// 	return (count_ra);
+// }
 
-int	opti_rotate(t_list **lst_a, int chunk_size, int flag)
-{
-	int	ra;
-	int	rra;
-	int i;
-	if (!lst_a)
-		return(-1);
-	i = 0;
-	ra = check_ra((*lst_a), chunk_size);
-	if (ra < 0)
-		return (-1);
-	rra = ft_lstsize((*lst_a)) - ra;
-	if (ra <= rra)
-		while(ra >= 0)
-		{
-			i += rotate_a(lst_a, flag);
-			ra--;
-		}
-	else
-		while (rra >= 0)
-		{
-			i += reverse_rotate_a(lst_a, flag);
-			rra--;
-		}
-	return (i);
-}
+// int	check_rra(t_list *lst, int chunk_size, int flag)
+// {
+// 	t_list	*temp;
+// 	int		count_rra;
+
+// 	temp = ft_lstdup(lst);
+// 	count_rra = 0;
+// 	while ((temp)->index > chunk_size)
+// 	{
+// 		reverse_rotate_a(&temp, flag);
+// 		count_rra++;
+// 	}
+// 	ft_lstclear(&temp);
+// 	return (count_rra);
+// }
 
 int	push_to_b(t_list **lst_a, t_list **lst_b, int chunk_size,
 		int lst_size, int flag)
@@ -88,8 +72,8 @@ int	push_to_b(t_list **lst_a, t_list **lst_b, int chunk_size,
 				i += push_b(lst_a, lst_b, flag);
 				chunk_pos++;
 			}
-			if (*lst_a)
-				i += opti_rotate(lst_a, chunk_size, flag);
+			else
+				i += rotate_a(lst_a,flag);
 		}
 		chunk_size += incr_chunk;
 	}
