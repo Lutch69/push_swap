@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:25:24 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/04 18:12:44 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/06 13:24:57 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,14 @@ void	algo(t_list **lst_a, t_list **lst_b)
 	if (!lst_a || !*lst_a)
 		return ;
 	lst_size = ft_lstsize(*lst_a);
+	if (lst_size <= 5)
+	{
+		if (lst_size <= 3)
+			sort_3(lst_a);
+		else if (lst_size <= 5)
+			sort_5(lst_a, lst_b);
+		return ;
+	}
 	chunk_size = definechunk_size(lst_a, lst_b, lst_size);
 	push_to_b(lst_a, lst_b, chunk_size, lst_size, 0);
 	sort_to_a(lst_a, lst_b, 0);

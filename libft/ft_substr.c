@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 12:03:08 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/10/29 07:06:53 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/06 16:50:44 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,3 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	ft_strlcpy(dst, &s[start], n);
 	return (dst);
 }
-// int main(void)
-// {
-// 	char *str;
-// 	str = ft_substr("salut comment ca va?", 6, 7);
-// 	printf("%s\n", str);
-// }

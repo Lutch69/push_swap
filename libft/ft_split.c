@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 16:32:14 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/02 23:28:53 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/06 16:53:12 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_freetab(char **newstr, size_t word)
 	while (word-- > 0)
 		free(newstr[word]);
 	free(newstr);
-	ft_error();
 }
 
 static int	ft_copy_lines(char **newstr, char *str, char c, size_t word)
@@ -86,22 +85,3 @@ char	**ft_split(char *s1, char c)
 		return (NULL);
 }
 
-// int	main(void)
-// {
-// 	char	**newstr;
-// 	int		i;
-
-// 	i = 0;
-// 	newstr = ft_split("Bonjour comment ca va ?", 32);
-// 	while (newstr[i])
-// 	{
-// 		printf("%s\n", newstr[i]);
-// 		i++;
-// 	}
-// 	while (i > 0)
-// 	{
-// 		free(newstr[i]);
-// 		i--;
-// 	}
-// 	free(newstr);
-// }

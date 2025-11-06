@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/03 15:57:26 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/06 16:30:58 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct c_list
 	struct c_list	*next;
 }					t_list;
 
-void				ft_error(void);
+void				ft_error(int ac, char **av);
 int					main(int ac, char **av);
 
 // Fonction lst
@@ -54,7 +54,7 @@ void				ft_putstr(char *str);
 char				*ft_strchr(const char *s, int c);
 void				ft_freetab(char **newstr, size_t word);
 
-// fonction de tri
+// fonction sort
 int					push_a(t_list **lst_a, t_list **lst_b, int flag);
 int					push_b(t_list **lst_a, t_list **lst_b, int flag);
 void				swap_a(t_list **lst_a);
@@ -67,14 +67,17 @@ int					reverse_rotate_a(t_list **lst_a, int flag);
 int					reverse_rotate_b(t_list **lst_b, int flag);
 int					reverse_rotate_r(t_list **lst_a, t_list **lst_b, int flag);
 
-// fonction pour algo
+// fonction algo
 int				push_to_b(t_list **lst_a, t_list **lst_b, int chunk_size,
 						int lst_size, int flag);
 int					sort_to_a(t_list **lst_a, t_list **lst_b, int flag);
 void				algo(t_list **lst_a, t_list **lst_b);
+void				sort_3(t_list **lst_a);
+void				sort_5(t_list **lst_a, t_list **lst_b);
+int					no_sort(t_list **lst_a);
 
-// check pour algo
+// check algo
 int					definechunk_size(t_list **lst_a, t_list **lst_b,
 						int lst_size);
-int					check_rb(t_list *lst_b, int chunk_pos);
+int					check_rotate(t_list *lst_b, int chunk_pos);
 #endif

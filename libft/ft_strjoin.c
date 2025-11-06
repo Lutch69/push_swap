@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:26:34 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/10/29 22:54:52 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/06 16:50:37 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,3 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_strlcat(newstr, s2, len1 + len2 + 1);
 	return (newstr);
 }
-// int main(void)
-// {
-// 	printf("%s\n", ft_strjoin("",""));
-// }

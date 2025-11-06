@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:58:11 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/03 16:45:09 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/06 13:22:21 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	sort_to_a(t_list **lst_a, t_list **lst_b, int flag)
 	{
 		while (chunk_pos != (*lst_b)->index)
 		{
-			if (check_rb((*lst_b), chunk_pos) < chunk_pos / 2)
+			if (check_rotate((*lst_b), chunk_pos) < chunk_pos / 2)
 				i += rotate_b(lst_b, flag);
 			else
 				i += reverse_rotate_b(lst_b, flag);
@@ -63,14 +63,14 @@ int	definechunk_size(t_list **lst_a, t_list **lst_b, int lst_size)
 	return (ret);
 }
 
-int	check_rb(t_list *lst, int chunk_pos)
+int	check_rotate(t_list *lst, int chunk_pos)
 {
 	int		count_rb;
 	t_list	*temp;
 
 	temp = lst;
 	count_rb = 0;
-	while ((temp)->index != chunk_pos)
+	while (temp->index != chunk_pos)
 	{
 		temp = temp->next;
 		count_rb++;

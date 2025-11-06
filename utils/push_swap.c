@@ -6,31 +6,40 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:13:59 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/03 14:36:45 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/06 17:23:05 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-void	ft_error(void)
+void	ft_error(int ac, char **av)
 {
+	int i;
+
+	i = 1;
+	while (i < ac)
+	{
+		free(av[i]);
+		i++;
+	}
+	free(av);
 	write (2, "ERROR\n", 6);
 	exit(EXIT_FAILURE);
 }
 
-void	free_av(char **new_av, size_t ac)
+void	free_av(int ac, char **new_av)
 {
 	int	i;
 
 	i = 1;
 	while (i < ac)
 	{
-		free(new_av[ac]);
+		free(new_av[i]);
 		i++;
 	}
 	free(new_av);
 }
 
-int	count_ac(char **str)
+ static int	count_ac(char **str)
 {
 	int	count = 0;
 	while (str && str[count])
@@ -38,7 +47,57 @@ int	count_ac(char **str)
 	return(count);
 }
 
-char **new_av(char *progname, char **temp, int ac)
+static void	check_double(int ac, char **av)
+{
+	int	stock;
+	int	newstock;
+	int	i;
+	int	j;
+
+	i = 1;
+	while (i < ac - 1)
+	{
+		j = i + 1;
+		stock = ft_atoi(av[i]);
+		while (j < ac)
+		{
+			newstock = ft_atoi(av[j]);
+			if (stock == newstock)
+			{
+				write (1,"ERROR\n", 6);
+				exit(EXIT_FAILURE);
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+void	check_av(int ac, char **av)
+{
+	int i;
+	int j;
+
+	j = 1;
+	while (j < ac)
+	{
+		i = 0;
+		if (av[j][i] == '-' || av[j][i] == '+')
+			i++;
+		while (av[j][i])
+		{
+			if (!(av[j][i] >= '0' && av[j][i] <= '9'))
+			{
+				write (1,"ERROR\n", 6);
+				exit(EXIT_FAILURE);
+			}
+			i++;
+		}
+		j++;
+	}
+}
+
+ static char **new_av(char *progname, char **temp, int ac)
 {
 	char **new_av;
 	int	i;
@@ -46,7 +105,7 @@ char **new_av(char *progname, char **temp, int ac)
 	i = 0;
 	new_av = malloc(sizeof(char *) * (ac + 1));
 	if (!new_av)
-		ft_error();
+		ft_error(ac, new_av);
 	new_av[0] = progname;
 	while (i < ac)
 	{
@@ -67,17 +126,24 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		temp = ft_split(av[1], ' ');
-		if (!temp || !temp[0])
-			ft_error();
 		ac = count_ac(temp) + 1;
 		av = new_av(av[0], temp, ac);
 		split = 1;
 	}
+	check_av(ac, av);
+	check_double(ac, av);
 	lst_b = NULL;
 	lst_a = crea_lst(ac, av);
+	if (lst_a && no_sort(&lst_a) == 1)
+	{
+		if (split)
+			free_av(ac, av);
+		ft_lstclear(&lst_a);
+		return (0);
+	}
 	algo(&lst_a, &lst_b);
 	if (split)
-		free_av(av, ac);
+		free_av(ac, av);
 	ft_lstclear(&lst_a);
 	return (0);
 }
