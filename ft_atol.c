@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 12:32:28 by lucasdebarn       #+#    #+#             */
-/*   Updated: 2025/11/08 12:38:01 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/08 20:41:09 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

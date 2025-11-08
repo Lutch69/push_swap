@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:14:09 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/08 13:28:24 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/08 21:03:48 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_chunk_data
 void				ft_error(int ac, char **av);
 int					main(int ac, char **av);
 void				free_av(int ac, char **new_av);
+void				if_split_error(int ac, char **av, int split);
 
 // Fonction lst
 void				ft_lstadd_back(t_list **lst, t_list *new);
@@ -80,6 +81,7 @@ int					reverse_rotate_r(t_list **lst_a, t_list **lst_b, int flag);
 int					push_to_b(t_list **a, t_list **b, int chunk_size, int flag);
 int					sort_to_a(t_list **a, t_list **b, int flag);
 void				algo(t_list **lst_a, t_list **lst_b);
+void				sort_2(t_list **lst);
 void				sort_3(t_list **lst_a);
 void				sort_5(t_list **lst_a, t_list **lst_b);
 int					no_sort(t_list **lst_a);

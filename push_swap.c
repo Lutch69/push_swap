@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:13:59 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/08 12:34:54 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/08 21:14:35 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,34 +22,31 @@ static int	count_ac(char **str)
 	return (count);
 }
 
-void	check_double(int ac, char **av)
+void	check_double(int ac, char **av, int split)
 {
 	long	stock;
 	long	newstock;
 	int		i;
 	int		j;
 
-	i = 1;
-	while (i < ac - 1)
+	i = 0;
+	while (++i < ac)
 	{
 		j = i + 1;
 		stock = ft_atol(av[i]);
+		if (stock > INT_MAX || stock < INT_MIN)
+			if_split_error(ac, av, split);
 		while (j < ac)
 		{
 			newstock = ft_atol(av[j]);
-			if (stock == newstock
-				|| stock > INT_MAX || stock < INT_MIN)
-			{
-				write (1, "ERROR\n", 6);
-				exit (EXIT_FAILURE);
-			}
+			if (stock == newstock || stock > INT_MAX || stock < INT_MIN)
+				if_split_error(ac, av, split);
 			j++;
 		}
-		i++;
 	}
 }
 
-void	check_av(int ac, char **av)
+void	check_av(int ac, char **av, int split)
 {
 	int	i;
 	int	j;
@@ -60,13 +57,12 @@ void	check_av(int ac, char **av)
 		i = 0;
 		if (av[j][i] == '-' || av[j][i] == '+')
 			i++;
+		if (av[j][i] == '\0')
+			if_split_error(ac, av, split);
 		while (av[j][i])
 		{
 			if (!(av[j][i] >= '0' && av[j][i] <= '9'))
-			{
-				write (1, "ERROR\n", 6);
-				exit(EXIT_FAILURE);
-			}
+				if_split_error(ac, av, split);
 			i++;
 		}
 		j++;
@@ -89,7 +85,6 @@ static char	**new_av(char *progname, char **temp, int ac)
 		i++;
 	}
 	new_av[ac] = NULL;
-	free_av(ac, temp);
 	return (new_av);
 }
 
@@ -106,10 +101,11 @@ int	main(int ac, char **av)
 		temp = ft_split(av[1], ' ');
 		ac = count_ac(temp) + 1;
 		av = new_av(av[0], temp, ac);
+		free(temp);
 		split = 1;
 	}
-	check_av(ac, av);
-	check_double(ac, av);
+	check_double(ac, av, split);
+	check_av(ac, av, split);
 	lst_b = NULL;
 	lst_a = crea_lst(ac, av);
 	algo(&lst_a, &lst_b);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 15:51:08 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/08 12:41:08 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/08 19:11:27 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	handle_chunk_push(t_list **a, t_list **b, int chunk, int flag)
+static int	chunk_push(t_list **a, t_list **b, int chunk, int flag)
 {
 	int	i;
 
@@ -47,7 +47,7 @@ int	push_to_b(t_list **a, t_list **b, int chunk_size, int flag)
 		{
 			if ((*a) && (*a)->index <= pos)
 			{
-				i += handle_chunk_push(a, b, chunk_size, flag);
+				i += chunk_push(a, b, chunk_size, flag);
 				pos++;
 			}
 			else if ((*a) && (*a)->index < chunk_size)
@@ -67,10 +67,14 @@ void	algo(t_list **lst_a, t_list **lst_b)
 
 	if (!lst_a || !*lst_a)
 		return ;
+	else if (no_sort(lst_a))
+		return ;
 	lst_size = ft_lstsize(*lst_a);
 	if (lst_size <= 5)
 	{
-		if (lst_size <= 3)
+		if (lst_size == 2)
+			sort_2(lst_a);
+		else if (lst_size == 3)
 			sort_3(lst_a);
 		else if (lst_size <= 5)
 			sort_5(lst_a, lst_b);

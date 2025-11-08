@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:49:35 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/07 11:42:40 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/08 18:03:10 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	no_sort(t_list **lst_a)
 
 void	sort_2(t_list **lst)
 {
-	if ((*lst)->index < (*lst)->next->index)
+	if ((*lst)->index > (*lst)->next->index)
 		swap_a(lst);
 }
 

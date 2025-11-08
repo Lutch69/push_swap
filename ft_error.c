@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
+/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 15:32:38 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/08 12:03:12 by lucasdebarn      ###   ########.fr       */
+/*   Updated: 2025/11/08 21:15:53 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_error(int ac, char **av)
 		i++;
 	}
 	free(av);
-	write (2, "ERROR\n", 6);
+	write (2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -38,4 +38,15 @@ void	free_av(int ac, char **new_av)
 		i++;
 	}
 	free(new_av);
+}
+
+void	if_split_error(int ac, char **av, int split)
+{
+	if (split)
+		ft_error(ac, av);
+	else
+	{
+		write (2, "Error\n", 6);
+		exit(EXIT_FAILURE);
+	}
 }
