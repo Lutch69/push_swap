@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:13:59 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/07 15:39:27 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/08 12:34:54 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,23 @@ static int	count_ac(char **str)
 	return (count);
 }
 
-static void	check_double(int ac, char **av)
+void	check_double(int ac, char **av)
 {
-	int	stock;
-	int	newstock;
-	int	i;
-	int	j;
+	long	stock;
+	long	newstock;
+	int		i;
+	int		j;
 
 	i = 1;
 	while (i < ac - 1)
 	{
 		j = i + 1;
-		stock = ft_atoi(av[i]);
+		stock = ft_atol(av[i]);
 		while (j < ac)
 		{
-			newstock = ft_atoi(av[j]);
-			if (stock == newstock)
+			newstock = ft_atol(av[j]);
+			if (stock == newstock
+				|| stock > INT_MAX || stock < INT_MIN)
 			{
 				write (1, "ERROR\n", 6);
 				exit (EXIT_FAILURE);

@@ -3,64 +3,62 @@
 /*                                                        :::      ::::::::   */
 /*   sort_to_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:58:11 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/06 13:22:21 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/08 13:29:07 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sort_to_a(t_list **lst_a, t_list **lst_b, int flag)
+int	sort_to_a(t_list **a, t_list **b, int flag)
 {
 	int	chunk_pos;
 	int	i;
 
-	chunk_pos = ft_lstsize(*lst_b);
+	chunk_pos = ft_lstsize(*b);
 	i = 0;
-	while ((*lst_b) && chunk_pos >= 0)
+	while ((*b) && chunk_pos >= 0)
 	{
-		while (chunk_pos != (*lst_b)->index)
+		while (chunk_pos != (*b)->index)
 		{
-			if (check_rotate((*lst_b), chunk_pos) < chunk_pos / 2)
-				i += rotate_b(lst_b, flag);
+			if (check_rotate((*b), chunk_pos) < chunk_pos / 2)
+				i += rotate_b(b, flag);
 			else
-				i += reverse_rotate_b(lst_b, flag);
+				i += reverse_rotate_b(b, flag);
 		}
-		i += push_a(lst_a, lst_b, flag);
+		i += push_a(a, b, flag);
 		chunk_pos--;
 	}
 	return (i);
 }
 
-int	definechunk_size(t_list **lst_a, t_list **lst_b, int lst_size)
+int	definechunk_size(t_list **a, t_list **b, int lst_size)
 {
-	int		ret;
-	int		i;
-	int		stock;
-	int		new_stock;
-	t_list	*temp_a;
-	t_list	*temp_b;
+	t_chunk_data	d;
+	int				new_stock;
+	t_list			*temp_a;
+	t_list			*temp_b;
 
 	new_stock = 2147483647;
-	i = 1;
-	ret = lst_size;
-	while (i++ < lst_size / 3)
+	d.i = 1;
+	d.stock = lst_size;
+	while (d.i++ < lst_size / 5)
 	{
-		temp_a = ft_lstdup(*lst_a);
-		temp_b = ft_lstdup(*lst_b);
-		stock = push_to_b(&temp_a, &temp_b, i, lst_size, 1);
-		stock += sort_to_a(&temp_a, &temp_b, 1);
-		if (new_stock > stock)
+		temp_a = ft_lstdup(*a);
+		temp_b = ft_lstdup(*b);
+		d.stock = push_to_b(&temp_a, &temp_b, d.i, 1);
+		d.stock += sort_to_a(&temp_a, &temp_b, 1);
+		if (new_stock > d.stock)
 		{
-			new_stock = stock;
-			ret = i;
+			new_stock = d.stock;
+			d.ret = d.i;
 		}
 		ft_lstclear(&temp_a);
 		ft_lstclear(&temp_b);
 	}
-	return (ret);
+	return (d.ret);
 }
 
 int	check_rotate(t_list *lst, int chunk_pos)

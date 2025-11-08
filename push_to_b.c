@@ -3,72 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   push_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 15:51:08 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/07 16:54:27 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/08 12:41:08 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	algo_in_a(t_list **lst_a, t_list **lst_b, int chunk_size, int chunk_pos)
+static int	handle_chunk_push(t_list **a, t_list **b, int chunk, int flag)
 {
 	int	i;
 
 	i = 0;
-
-	while (chunk_pos < chunk_size - 1 && (*lst_a))
-	{
-		if ((*lst_a) && (*lst_a)->index <= chunk_pos)
-		{
-			i += push_b(lst_a, lst_b, flag);
-			chunk_pos++;
-			if ((*lst_a) && (*lst_a)->index > chunk_size)
-				i += rotate_r(lst_a, lst_b, flag);
-			else
-				i += rotate_b(lst_b, flag);
-		}
-		else if ((*lst_a) && (*lst_a)->index < chunk_size)
-		{
-			i += push_b(lst_a, lst_b, flag);
-			chunk_pos++;
-		}
-		else
-			i += rotate_a(lst_a,flag);
-	}
+	i = push_b(a, b, flag);
+	if (*a && (*a)->index > chunk)
+		i += rotate_r(a, b, flag);
+	else
+		i += rotate_b(b, flag);
+	return (i);
 }
 
-int	push_to_b(t_list **lst_a, t_list **lst_b, int chunk_size,
-		int lst_size, int flag)
+static int	push_b_pos(t_list **a, t_list **b, int *pos, int flag)
 {
-	int	chunk_pos;
+	push_b(a, b, flag);
+	(*pos)++;
+	return (1);
+}
+
+int	push_to_b(t_list **a, t_list **b, int chunk_size, int flag)
+{
+	int	pos;
 	int	i;
 	int	incr_chunk;
 
 	i = 0;
+	pos = 0;
 	incr_chunk = chunk_size;
-	chunk_pos = 0;
-	while (chunk_pos < lst_size - 1)
+	while (*a)
 	{
-		while (chunk_pos < chunk_size - 1 && (*lst_a))
+		while (pos < chunk_size - 1 && (*a))
 		{
-			if ((*lst_a) && (*lst_a)->index <= chunk_pos)
+			if ((*a) && (*a)->index <= pos)
 			{
-				i += push_b(lst_a, lst_b, flag);
-				chunk_pos++;
-				if ((*lst_a) && (*lst_a)->index > chunk_size)
-					i += rotate_r(lst_a, lst_b, flag);
-				else
-					i += rotate_b(lst_b, flag);
+				i += handle_chunk_push(a, b, chunk_size, flag);
+				pos++;
 			}
-			else if ((*lst_a) && (*lst_a)->index < chunk_size)
-			{
-				i += push_b(lst_a, lst_b, flag);
-				chunk_pos++;
-			}
+			else if ((*a) && (*a)->index < chunk_size)
+				i += push_b_pos(a, b, &pos, flag);
 			else
-				i += rotate_a(lst_a,flag);
+				i += rotate_a(a, flag);
 		}
 		chunk_size += incr_chunk;
 	}
@@ -92,6 +77,6 @@ void	algo(t_list **lst_a, t_list **lst_b)
 		return ;
 	}
 	chunk_size = definechunk_size(lst_a, lst_b, lst_size);
-	push_to_b(lst_a, lst_b, chunk_size, lst_size, 0);
+	push_to_b(lst_a, lst_b, chunk_size, 0);
 	sort_to_a(lst_a, lst_b, 0);
 }

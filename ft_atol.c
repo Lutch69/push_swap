@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucasdebarnot <lucasdebarnot@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 15:32:38 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/08 12:03:12 by lucasdebarn      ###   ########.fr       */
+/*   Created: 2025/11/08 12:32:28 by lucasdebarn       #+#    #+#             */
+/*   Updated: 2025/11/08 12:38:01 by lucasdebarn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(int ac, char **av)
+long	ft_atol(char *str)
 {
-	int	i;
+	long	nb;
+	int		sign;
+	int		i;
 
-	i = 1;
-	while (i < ac)
-	{
-		free(av[i]);
-		i++;
-	}
-	free(av);
-	write (2, "ERROR\n", 6);
-	exit(EXIT_FAILURE);
-}
-
-void	free_av(int ac, char **new_av)
-{
-	int	i;
-
-	i = 1;
-	while (i < ac)
-	{
-		free(new_av[i]);
-		i++;
-	}
-	free(new_av);
+	nb = 0;
+	sign = 1;
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		if (str[i++] == '-')
+			sign = -1;
+	while (str[i] >= '0' && str[i] <= '9')
+		nb = nb * 10 + (str[i++] - '0');
+	return (nb * sign);
 }
