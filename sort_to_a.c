@@ -6,7 +6,7 @@
 /*   By: ludebarn <ludebarn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:58:11 by ludebarn          #+#    #+#             */
-/*   Updated: 2025/11/08 20:01:07 by ludebarn         ###   ########.fr       */
+/*   Updated: 2025/11/22 10:32:21 by ludebarn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	definechunk_size(t_list **a, t_list **b, int lst_size)
 	new_stock = 2147483647;
 	d.i = 1;
 	d.stock = lst_size;
-	while (d.i++ < lst_size / 5)
+	while (d.i++ < lst_size / 2)
 	{
 		temp_a = ft_lstdup(*a);
 		temp_b = ft_lstdup(*b);
